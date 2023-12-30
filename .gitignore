@@ -1,0 +1,4 @@
+.env
+.prod.env
+node_modules
+web-back-end-new.pem
