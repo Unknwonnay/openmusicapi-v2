@@ -1,6 +1,4 @@
 /* eslint-disable no-underscore-dangle */
-const autoBind = require('auto-bind');
-
 class PlaylistsHandler {
   constructor(
     PlaylistsService,
@@ -8,12 +6,10 @@ class PlaylistsHandler {
     PlaylistsSongsActivitiesService,
     PlaylistsValidator,
   ) {
-    this._playlistsService = PlaylistsService;
+    this._playlistsService = this.PlaylistsService.bind(this);
     this._playlistsSongsService = PlaylistsSongsService;
     this._playlistsSongsActivitiesService = PlaylistsSongsActivitiesService;
     this._playlistsValidator = PlaylistsValidator;
-
-    autoBind(this);
   }
 
   async postPlaylistHandler(request, h) {
